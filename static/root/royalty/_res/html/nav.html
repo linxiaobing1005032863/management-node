@@ -1,0 +1,103 @@
+<ul class="list">
+    <li>
+        <a href="javascript:void(0)">
+            <i class="list-icon">
+                <svg role="img" class="selfperson">
+                    <use xlink:href="#selfperson"></use>
+                </svg>
+            </i>
+            <i class="list-text">个人中心</i>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)">
+            <i class="list-icon">
+                <svg role="img" class="index">
+                    <use xlink:href="#index"></use>
+                </svg>
+            </i>
+            <i class="list-text">系统首页</i>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)"  ng-click="notices()" class="inactive {{ notice?'inactives':''}}">
+            <i class="list-icon">
+                <svg role="img" class="notice">
+                    <use xlink:href="#notice"></use>
+                </svg>
+            </i>
+            <i class="list-text">公告通知</i>
+        </a>
+        <ul class="inactive-line line-message" ng-show="notice">
+            <li><a>个人消息<i class="unread"></i></a></li>
+            <li><a>活动公告<i class="unread"></i></a></li>
+            <li><a>综合资源部<i class="unread"></i></a></li>
+            <li><a>运营商务部<i class="unread"></i></a></li>
+            <li><a>研发部公告<i class="unread"></i></a></li>
+            <li><a>请假公告<i class="unread"></i></a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript:void(0)"  ng-click="knows()" class="inactive {{know?'inactives':''}}">
+            <i class="list-icon">
+                <svg role="img" class="know">
+                    <use xlink:href="#know"></use>
+                </svg>
+            </i>
+            <i class="list-text">知此知彼</i>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)" ng-click="archives()" class="inactive {{archive?'inactives':''}}">
+            <i class="list-icon">
+                <svg role="img" class="archives">
+                    <use xlink:href="#archives"></use>
+                </svg>
+            </i>
+            <i class="list-text">档案库</i>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)"  ng-click="dividend()"  class="inactive {{alty?'inactives':''}}">
+            <i class="list-icon">
+                <svg role="img" class="archives">
+                    <use xlink:href="#archives"></use>
+                </svg>
+            </i>
+            <i class="list-text ">提成分红</i>
+        </a>
+        <ul  class="inactive-line line-message " ng-show="!alty">
+            <li ng-repeat="list in showsList2">
+                <a href="javascript:void(0)"  ng-click="royalty()"  class="inactive {{roy?'inactives':'active'}}">{{list.item}}</a>
+                <ul class="list-children"   ng-repeat="menuInfo in list.menuList" ng-show="!roy">
+                    <li ng-click="navClass(menuInfo.msg)"  ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.royalty.index.list[12]">
+                        <a href="#">{{menuInfo.name1}}</a>
+                    </li>
+                    <li ng-click="navClass(menuInfo.msg) " ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.royalty.system.list[12]">
+                        <a href="#">{{menuInfo.name2}}</a>
+                    </li>
+                    <li ng-click="navClass(menuInfo.msg)"  ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.royalty.department.list[12]">
+                        <a href="#">{{menuInfo.name3}}</a>
+                    </li>
+                    <li ng-click="navClass(menuInfo.msg) " ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.royalty.jobsbet.list[12]">
+                        <a href="#">{{menuInfo.name4}}</a>
+                    </li>
+                    <li ng-click="navClass(menuInfo.msg)"  ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.royalty.manage.list[12]">
+                        <a href="#">{{menuInfo.name5}}</a>
+                    </li>
+                    <li ng-click="navClass(menuInfo.msg)"  ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.royalty.collect.collect[12]">
+                        <a href="#">{{menuInfo.name6}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-repeat="list in showsList3">
+                <a href="javascript:void(0)" ng-click="royalty1()"  class="inactive {{roy1?'inactives':'active'}}">{{list.item}}</a>
+                <ul class="list-children"   ng-repeat="menuInfo in list.menuList" ng-show="roy1">
+                    <li ng-click="navClass(menuInfo.msg)"  ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.royalty.setting.list[12]">
+                        <a href="#">{{menuInfo.name6}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

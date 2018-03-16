@@ -1,0 +1,44 @@
+<ul class="right-nav">
+    <li  ng-click="list()" ng-class="  {'current-color':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')" >
+        <a href="javascript:void(0)" >
+            <i class="list-icon">
+                <svg role="img">
+                    <use xlink:href="#list"></use>
+                </svg>
+            </i>
+            列表
+        </a>
+    </li>
+    <li  ng-click="add()" ng-class="{'current-color':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)">
+            <i class="list-icon">
+                <svg role="img">
+                    <use xlink:href="#add"></use>
+                </svg>
+            </i>    添加
+        </a></li>
+    <li  ng-click="edit()"   ng-class="{'see':menuClass!='editMenu','seeParent':idList,'current-color':menuClass=='editMenu'}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"><i class="list-icon">
+        <svg role="img">
+            <use xlink:href="#edit"></use>
+        </svg>
+      </i>编辑</a>
+    </li>
+    <li   ng-click="delete()" ng-class="{'seeParent':popId,'see':menuClass!='deleteMenu','current-color':menuClass=='deleteMenu'}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)"><i class="list-icon">
+        <svg role="img">
+        <use xlink:href="#delete"></use>
+              </svg></i>删除</a>
+       </li>
+    <li  ng-click="collect()" ng-class="{'current-color':menuClass=='collectMenu'}" ui-sref=".collect[12]"  ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)">
+            <i class="list-icon">
+                <svg role="img">
+                    <use xlink:href="#collect"></use>
+                </svg>
+            </i>    汇总
+        </a>
+    </li>
+</ul>
+
+

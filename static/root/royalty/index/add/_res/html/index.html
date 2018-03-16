@@ -1,0 +1,49 @@
+<div class="add" verify-scope="tipStyle: 1">
+    <ul class="input-list">
+        <li>
+            <label>指标编号 <i>*</i></label>
+            <input type="text" ng-model="IndexAdd.indexNum" ng-verify="{}">
+        </li>
+        <li>
+            <label>指标维度<i>*</i></label>
+            <input type="text" ng-model="IndexAdd.indexDimension" ng-verify="{}">
+        </li>
+        <li>
+            <label>指标名称<i>*</i></label>
+            <input type="text" ng-model="IndexAdd.indexName" ng-verify="{}">
+        </li>
+        <li>
+            <label>指标描述<i>*</i></label>
+            <input type="text" ng-model="IndexAdd.indexDescription" ng-verify="{}">
+        </li>
+        <li>
+            <label>意义<i>*</i></label>
+            <input type="text" ng-model="IndexAdd.sense" ng-verify="{}">
+        </li>
+        <li>
+            <label>适用岗位<i>*</i></label>
+            <input type="text" ng-model="IndexAdd.forPost" ng-verify="{}">
+        </li>
+        <li>
+            <label>数据来源<i>*</i></label>
+            <input type="text" ng-model="IndexAdd.dataSource" ng-verify="{}">
+        </li>
+
+    </ul>
+    <p class="input-bottom">
+        <button class="cancel" ng-click="cancel()">取消</button>
+        <button   ng-verify="{control:'myform'}"   ng-click="addIndexFun()" >确定</button>
+    </p>
+
+</div>
+
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>
+

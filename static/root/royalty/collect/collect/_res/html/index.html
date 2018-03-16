@@ -1,0 +1,237 @@
+<ul class="collect-select inputter">
+    <li>
+        <label>时间</label>
+        <input type="text" class="time"  onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+    </li>
+    <li>
+        <button ng-click="daySum()" class="aaa">汇总</button>
+    </li>
+    </ul>
+<div class="collect-list">
+    <div class="list-one">管理提成管理日汇总
+    </div>
+    <div class="list-box">
+        <ul class="box">
+            <li class="box-head">
+                <p>地区</p>
+                <p>项目组/部门</p>
+                <p>已立项</p>
+                <p>已确定提成分配比例项目数</p>
+                <p>已对赌项目数</p>
+                <p>计划利润额</p>
+                <p>实际分值(利润额)</p>
+                <p>差异利润额</p>
+                <p>已完工项目</p>
+                <p>已回款项目</p>
+                <p>实际所得利润额</p>
+                <p>综合资源部实际所得利润额</p>
+                <p>财务发展部实际所得利润额</p>
+            </li>
+            <li class="box-body {{lists._selectList?'box-bodys':''}}" ng-repeat="lists in summaryLists"  ng-click="selectList(lists)" >
+                <span>{{::lists.area}}</span>
+                <span>{{::lists.department}}</span>
+                <span>{{::lists.hasProject}}</span>
+                <span>{{::lists.commission}}</span>
+                <span>{{::lists.bet}}</span>
+                <span>{{::lists.plan}}</span>
+                <span>{{::lists.practice}}</span>
+                <span>{{::lists.balance}}</span>
+                <span>{{::lists.completed}}</span>
+                <span>{{::lists.back}}</span>
+                <span>{{::lists.practiceProfit}}</span>
+                <span>{{::lists.resourceProfit}}</span>
+                <span>{{::lists.accountProfit}}</span>
+              </li>
+        </ul>
+    </div>
+    <ul class="collect-select inputter">
+        <li>
+            <label>年</label>
+            <select ng-model="year" ng-model="year">
+                <option value="" disabled></option>
+                <option ng-repeat="year in years">{{year}}</option>
+            </select>
+        </li>
+        <li>
+            <label>月份</label>
+            <select ng-model="month">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </li>
+        <li>
+            <button ng-click="week()" class="aaa">获取周数</button>
+        </li>
+        <li>
+            <label>周数</label>
+            <select ng-model="week" ng-model="week" >
+                <option value="" disabled></option>
+                <option ng-repeat="week in weekList">{{week}}</option>
+            </select>
+        </li>
+        <li>
+            <button ng-click="weekSum()" class="aaa">汇总</button>
+        </li>
+    </ul>
+    <div class="collect-list">
+        <div class="list-one">管理提成管理周汇总
+        </div>
+        <div class="list-box">
+            <ul class="box">
+                <li class="box-head">
+                    <p>地区</p>
+                    <p>项目组/部门</p>
+                    <p>已立项</p>
+                    <p>已确定提成分配比例项目数</p>
+                    <p>已对赌项目数</p>
+                    <p>计划利润额</p>
+                    <p>实际分值(利润额)</p>
+                    <p>差异利润额</p>
+                    <p>已完工项目</p>
+                    <p>已回款项目</p>
+                    <p>实际所得利润额</p>
+                    <p>综合资源部实际所得利润额</p>
+                    <p>财务发展部实际所得利润额</p>
+                </li>
+                <li class="box-body {{lists._selectList?'box-bodys':''}}" ng-repeat="lists in weekLists"  ng-click="selectList(lists)" >
+                    <span>{{::lists.area}}</span>
+                    <span>{{::lists.department}}</span>
+                    <span>{{::lists.hasProject}}</span>
+                    <span>{{::lists.commission}}</span>
+                    <span>{{::lists.bet}}</span>
+                    <span>{{::lists.plan}}</span>
+                    <span>{{::lists.practice}}</span>
+                    <span>{{::lists.balance}}</span>
+                    <span>{{::lists.completed}}</span>
+                    <span>{{::lists.back}}</span>
+                    <span>{{::lists.practiceProfit}}</span>
+                    <span>{{::lists.resourceProfit}}</span>
+                    <span>{{::lists.accountProfit}}</span>
+                </li>
+            </ul>
+        </div>
+<ul class="collect-select inputter">
+    <li>
+        <label>年</label>
+        <select ng-model="year" ng-model="year">
+            <option value="" disabled></option>
+            <option ng-repeat="yeart in years">{{yeart}}</option>
+        </select>
+    </li>
+    <li>
+        <label>月份</label>
+        <select ng-model="month">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+    </li>
+    <li>
+        <button ng-click="monthSum()" class="aaa">汇总</button>
+    </li>
+</ul>
+<div class="collect-list">
+    <div class="list-one">管理提成管理月汇总
+    </div>
+    <div class="list-box">
+        <ul class="box">
+            <li class="box-head">
+                <p>地区</p>
+                <p>项目组/部门</p>
+                <p>已立项</p>
+                <p>已确定提成分配比例项目数</p>
+                <p>已对赌项目数</p>
+                <p>计划利润额</p>
+                <p>实际分值(利润额)</p>
+                <p>差异利润额</p>
+                <p>已完工项目</p>
+                <p>已回款项目</p>
+                <p>实际所得利润额</p>
+                <p>综合资源部实际所得利润额</p>
+                <p>财务发展部实际所得利润额</p>
+            </li>
+            <li class="box-body {{lists._selectList?'box-bodys':''}}" ng-repeat="lists in monthLists"  ng-click="selectList(lists)" >
+                <span>{{::lists.area}}</span>
+                <span>{{::lists.department}}</span>
+                <span>{{::lists.hasProject}}</span>
+                <span>{{::lists.commission}}</span>
+                <span>{{::lists.bet}}</span>
+                <span>{{::lists.plan}}</span>
+                <span>{{::lists.practice}}</span>
+                <span>{{::lists.balance}}</span>
+                <span>{{::lists.completed}}</span>
+                <span>{{::lists.back}}</span>
+                <span>{{::lists.practiceProfit}}</span>
+                <span>{{::lists.resourceProfit}}</span>
+                <span>{{::lists.accountProfit}}</span>
+            </li>
+        </ul>
+    </div>
+    <ul class="collect-select inputter">
+        <li>
+            <label>时间</label>
+            <input type="text" class="totaltime"  onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+        </li>
+        <li>
+            <button ng-click="totalSum()" class="aaa">汇总</button>
+        </li>
+    </ul>
+    <div class="collect-list">
+        <div class="list-one">管理提成管理累计汇总
+        </div>
+        <div class="list-box">
+            <ul class="box">
+                <li class="box-head">
+                    <p>地区</p>
+                    <p>项目组/部门</p>
+                    <p>已立项</p>
+                    <p>已确定提成分配比例项目数</p>
+                    <p>已对赌项目数</p>
+                    <p>计划利润额</p>
+                    <p>实际分值(利润额)</p>
+                    <p>差异利润额</p>
+                    <p>已完工项目</p>
+                    <p>已回款项目</p>
+                    <p>实际所得利润额</p>
+                    <p>综合资源部实际所得利润额</p>
+                    <p>财务发展部实际所得利润额</p>
+                </li>
+                <li class="box-body {{lists._selectList?'box-bodys':''}}" ng-repeat="lists in totalLists"  ng-click="selectList(lists)" >
+                    <span>{{::lists.area}}</span>
+                    <span>{{::lists.department}}</span>
+                    <span>{{::lists.hasProject}}</span>
+                    <span>{{::lists.commission}}</span>
+                    <span>{{::lists.bet}}</span>
+                    <span>{{::lists.plan}}</span>
+                    <span>{{::lists.practice}}</span>
+                    <span>{{::lists.balance}}</span>
+                    <span>{{::lists.completed}}</span>
+                    <span>{{::lists.back}}</span>
+                    <span>{{::lists.practiceProfit}}</span>
+                    <span>{{::lists.resourceProfit}}</span>
+                    <span>{{::lists.accountProfit}}</span>
+                </li>
+            </ul>
+        </div>
+
+</div>
+</div>

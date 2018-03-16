@@ -1,0 +1,38 @@
+<header>
+    <div class="art-left">
+        <a href="javascript:void(0)" class="logo">LOGO项目市场化平台</a>
+        <a href="javascript:void(0)" class="set">
+            <svg role="img" class="setting">
+                <use xlink:href="#setting"></use>
+            </svg>
+        </a>
+        <a href="javascript:void(0)" class="search">
+            <svg role="img" class="search">
+                <use xlink:href="#search"></use>
+            </svg>
+            搜索
+        </a>
+    </div>
+    <div class="art-right">
+        <a href="javascript:void(0)" class="bell">
+            <svg role="img" class="message">
+                <use xlink:href="#message"></use>
+            </svg>
+            <i class="bell-count">0</i>
+        </a>
+        <a href="javascript:void(0)" class="photo" ng-click="login()">
+            <img src="/images/6.png" alt="">
+            <i class="photo-message"></i>
+        </a>
+        <p class="selected-down" ng-click="logout()" ng-show="logined">
+            <select class="selected">
+                <option>{{username}}</option>
+            </select>
+        </p>
+    </div>
+
+</header>
+<div class="content">
+    <nav class="nav" ui-view="nav"  resize ng-style="style()"></nav>
+    <div class="content-right" ui-view="content"></div>
+</div>

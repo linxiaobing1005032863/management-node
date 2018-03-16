@@ -1,0 +1,7 @@
+{
+  "default":"dev",
+  "dev": {
+    "rurl": "https://royalty.issp.bjike.com:8080",
+    "user": "https://user.issp.bjike.com:8080"
+  }
+}

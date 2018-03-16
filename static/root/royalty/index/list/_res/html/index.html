@@ -1,0 +1,78 @@
+<div class="list">
+    <ul class="table">
+        <li class="list-head">
+            <span>
+              <label class="tick"></label>
+             </span>
+            <span>序号</span>
+            <span>指标编号</span>
+            <span>指标维度 </span>
+            <span>指标名称 </span>
+            <span>指标描述</span>
+            <span class="operate">操作</span>
+        </li>
+        <li class="list-all"  ng-repeat="lists in materLists.data">
+            <div class="list-text"  ng-click="selectList(lists)" >
+                <p>
+                    <span class="tick {{lists._selectList?'select':''}}"></span>
+                </p>
+                <p>{{$index+1+num}}</p>
+                <p>{{::lists.indexNum}}</p>
+                <p>{{::lists.indexDimension}}</p>
+                <p>{{::lists.indexName}}</p>
+                <p>{{::lists.indexDescription}}</p>
+                <p ng-click="moreList(lists)">
+                    <a href="javascript:void(0)" class="more">
+                        <svg role="img" class="search2">
+                            <use xlink:href="#search2"></use>
+                        </svg>
+                        查看详细
+                    </a>
+                </p>
+            </div>
+            <div class="can"  style="display: {{lists._moreList?'block':'none'}};" >
+                <ul class="can-see"  >
+                    <li>
+                        <p class="see-head">
+                            <span>意义</span>
+                            <span>考核部门</span>
+                            <span>适用岗位</span>
+                            <span>数据来源</span>
+                        </p>
+                        <p class="see-body">
+                            <span>{{::lists.sense}}</span>
+                            <span>{{::lists.inspectionDepartment}}</span>
+                            <span>{{::lists.forPost}}</span>
+                            <span>{{::lists.dataSource}}</span>
+                        </p>
+                    </li>
+                </ul>
+                <p class="pick" ng-click="moreList(lists)">收起></p>
+
+            </div>
+        </li>
+      </ul>
+    </div>
+        <div class="module">
+            <div class="see-module">
+                <p class="see-type">体现类型</p>
+                <p class="see-description"></p>
+                <button class="btn" modclose>关闭</button>
+            </div>
+        </div>
+        <footer class="footer">
+            <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+        </footer>
+    <div class="delete mod" ng-show="delShow">
+        <div class="del-head">
+            <h5>温馨提示</h5>
+        </div>
+        <div class="del-con">
+            <p>确定要删除这条数据？</p>
+            <div class="btn">
+                <button ng-click="delFn()">确定</button>
+                <button ng-click="cancel()">取消</button>
+            </div>
+        </div>
+    </div>
+<div id="modalbg" ng-show="delShow"></div>

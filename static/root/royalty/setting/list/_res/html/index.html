@@ -1,0 +1,40 @@
+<div class="list">
+    <ul class="table">
+        <li class="list-head">
+            <span>
+              <label class="tick"></label>
+             </span>
+            <span>序号</span>
+            <span>描述</span>
+            <span>类型</span>
+            <span>操作对象范围</span>
+        </li>
+        <li class="list-all"  ng-repeat="list in settingLists">
+            <div class="list-text {{list._selectList?'selectList':''}}"  ng-click="selectList(list)" >
+                <p>
+                    <span class="tick {{list._selectList?'select':''}}"></span>
+                </p>
+                <p>{{$index+1+num}}</p>
+                <p>{{list.description}}</p>
+                <p>{{list.type|cover}}</p>
+                <p><span ng-repeat="operators in list.cusOperateVO">{{operators.operator}},</span></p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="module">
+    <div class="see-module">
+        <p class="see-type">体现类型</p>
+        <p class="see-description"></p>
+        <button class="btn" modclose>关闭</button>
+    </div>
+</div>
+<footer class="footer">
+    <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+</footer>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+
+

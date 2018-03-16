@@ -1,0 +1,248 @@
+<div class="collect-table"  verify-scope="tipStyle: 1">
+    <div class="summary-select">
+        <div class="select3" style="width: 55%">
+            <label><i>*</i><em>项目名称：</em></label>
+            <select ng-model="projectName"  ng-verify="option:0">
+                <option value="" disabled></option>
+                <option ng-repeat="num in numList">{{num}}</option>
+            </select>
+        </div>
+        <button class="button"  ng-verify="{control:'myform'}"   ng-click="collect()">确定</button>
+    </div>
+</div>
+<div class="commis-list">
+    <div class="list-box">
+        <ul class="box">
+            <li class="box-head">
+                <p>对赌开始时间</p>
+                <p>地区</p>
+                <p>项目组/部门</p>
+                <p>内部项目名称</p>
+                <p>分值（利润额）</p>
+                <p>计划分值（利润额</p>
+                <p>实际分值（利润额）</p>
+                <p>体系</p>
+                <p>部门</p>
+                <p>岗位</p>
+                <p>人数</p>
+                <p>分配基础权重（%）</p>
+                <p>目标基础得分</p>
+                <p>计划基础得分</p>
+                <p>未达标分配</p>
+                <p>实际基础得分</p>
+                <p>目标制约得分</p>
+                <p>计划制约得分</p>
+                <p>实际制约得分</p>
+                <p>目标总得分</p>
+                <p>计划总得分</p>
+                <p>分配对赌权重</p>
+                <p>指标编号</p>
+                <p>指标名称</p>
+                <p>对赌承诺-确认目标值</p>
+                <p>实际目标值</p>
+                <p>是否达标</p>
+                <p>目标对赌得分</p>
+                <p>计划对赌得分</p>
+                <p>实际对赌得分</p>
+                <p>未达标分配岗位</p>
+                <p>未达标分配</p>
+            </li>
+            <li class="box-body {{lists._selectList?'box-bodys':''}}" ng-repeat="lists in allLists"  ng-click="selectList(lists)" >
+                <p class="check-three">
+                    <label class="tick {{lists._selectList?'select':''}}"></label>
+                </p>
+                <span>{{::lists.betTime}}</span>
+                <span>{{::lists.area}}</span>
+                <span>{{::lists.projectGroup}}</span>
+                <span>{{::lists.projectName}}</span>
+                <span>{{::lists.scoreProfit}}</span>
+                <span>{{::lists.planProfit}}</span>
+                <span>{{::lists.practiceProfit}}</span>
+                <div class="feature">
+                    <ul class="body-ul">
+                        <li ng-repeat="list in lists.systemBetBBOS">
+                            <span class="ul-span">{{::list.system}}</span>
+                            <div class="two-floor">
+                                <ul class="two-floor-ul">
+                                    <li class="three-floor">
+                                        <ul class="three-floor-ul">
+                                            <li class="three-floor-li"></li>
+                                            <li class="four-floor">
+                                                <ul class="four-floor-ul">
+                                                    <li class="four-floor">
+                                                        <ul class="five-floor-ul">
+                                                            <li class="five-floor-li"></li>
+                                                            <li class="five-floor-li"></li>
+                                                            <li class="five-floor-li">{{::list.baseWeight}}</li>
+                                                            <li class="five-floor-li">{{::list.basesScore}}</li>
+                                                            <li class="five-floor-li">{{::list.basesScorePlan}}</li>
+                                                            <li class="five-floor-li">{{::list.basesScorePractice}}</li>
+                                                            <li class="five-floor-li">{{::list.restrictScore}}</li>
+                                                            <li class="five-floor-li">{{::list.restrictScorePlan}}</li>
+                                                            <li class="five-floor-li">{{::list.restrictScorePractice}}</li>
+                                                            <li class="five-floor-li">{{::list.systemTotalScore}}</li>
+                                                            <li class="five-floor-li">{{::list.systemTotalScorePlan}}</li>
+                                                            <li class="five-floor-li">{{::list.systemTotalScorePractice}}</li>
+                                                            <li class="five-floor">
+                                                                <ul class="five-floor-ul">
+                                                                    <li class="six-floor" ng-repeat="liF in list.systemBetCBOS">
+                                                                        <ul class="six-floor-ul">
+                                                                            <li class="six-floor-li">{{::liF.betWeight}}</li>
+                                                                            <li class="six-floor-li">{{::liF.indexNum}}</li>
+                                                                            <li class="six-floor-li">{{::liF.indexName}}</li>
+                                                                            <li class="six-floor-li">{{::liF.confirmTargetValue}}</li>
+                                                                            <li class="six-floor-li">{{::liF.actualTargetValue}}</li>
+                                                                            <li class="six-floor-li">{{::liF.standard|cos}}</li>
+                                                                            <li class="six-floor-li">{{::liF.betScore}}</li>
+                                                                            <li class="six-floor-li">{{::liF.betScorePlan}}</li>
+                                                                            <li class="six-floor-li">{{::liF.betScorePractice}}</li>
+                                                                            <li class="seven-floor">
+                                                                                <ul class="seven-floor-ul">
+                                                                                    <li class="eight-floor" ng-repeat="liG in liF.systemBetDBOS?liF.systemBetDBOS:aaa">
+                                                                                        <ul class="eight-floor-ul">
+                                                                                            <li class="eight-floor-li li-height">{{::liG.unmetAllocationJobs}}</li>
+                                                                                            <li class="eight-floor-li li-height">{{::liG.unmetAllocation}}</li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li ng-repeat="list in lists.departmentBetBBOS">
+                            <span class="ul-span">{{::list.system}}</span>
+                            <div class="two-floor">
+                                <ul class="two-floor-ul">
+                                    <li class="three-floor" ng-repeat="liss in list.departmentBetCBOS">
+                                        <ul class="three-floor-ul">
+                                            <li class="three-floor-li">{{::liss.department}}</li>
+                                            <li class="four-floor">
+                                                <ul class="four-floor-ul">
+                                                    <li class="four-floor" >
+                                                        <ul class="five-floor-ul">
+                                                            <li class="five-floor-li"></li>
+                                                            <li class="five-floor-li"></li>
+                                                            <li class="five-floor-li">{{::liss.baseWeight}}</li>
+                                                            <li class="five-floor-li">{{::liss.basesScore}}</li>
+                                                            <li class="five-floor-li">{{::liss.basesScorePlan}}</li>
+                                                            <li class="five-floor-li">{{::liss.basesScorePractice}}</li>
+                                                            <li class="five-floor-li">{{::liss.restrictScore}}</li>
+                                                            <li class="five-floor-li">{{::liss.restrictScorePlan}}</li>
+                                                            <li class="five-floor-li">{{::liss.restrictScorePractice}}</li>
+                                                            <li class="five-floor-li">{{::liss.departmentTotalScore}}</li>
+                                                            <li class="five-floor-li">{{::liss.departmentTotalScorePlan}}</li>
+                                                            <li class="five-floor-li">{{::liss.departmentTotalScorePractice}}</li>
+                                                            <li class="five-floor">
+                                                                <ul class="five-floor-ul">
+                                                                    <li class="six-floor" ng-repeat="liF in liss.departmentBetDBOS">
+                                                                        <ul class="six-floor-ul">
+                                                                            <li class="six-floor-li">{{::liF.betWeight}}</li>
+                                                                            <li class="six-floor-li">{{::liF.indexNum}}</li>
+                                                                            <li class="six-floor-li">{{::liF.indexName}}</li>
+                                                                            <li class="six-floor-li">{{::liF.confirmTargetValue}}</li>
+                                                                            <li class="six-floor-li">{{::liF.actualTargetValue}}</li>
+                                                                            <li class="six-floor-li">{{::liF.standard|cos}}</li>
+                                                                            <li class="six-floor-li">{{::liF.betScore}}</li>
+                                                                            <li class="six-floor-li">{{::liF.betScorePlan}}</li>
+                                                                            <li class="six-floor-li">{{::liF.betScorePractice}}</li>
+                                                                            <li class="seven-floor">
+                                                                                <ul class="seven-floor-ul">
+                                                                                    <li class="eight-floor" ng-repeat="liG in liF.departmentBetEBOS?liF.departmentBetEBOS:bbb">
+                                                                                        <ul class="eight-floor-ul">
+                                                                                            <li class="eight-floor-li li-height">{{::liG.unmetAllocationDepartment}}</li>
+                                                                                            <li class="eight-floor-li li-height">{{::liG.unmetAllocation}}</li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li ng-repeat="list in lists.jobsBetBBOS">
+                            <span class="ul-span">{{::list.system}}</span>
+                            <div class="two-floor">
+                                <ul class="two-floor-ul">
+                                    <li class="three-floor" ng-repeat="liss in list.jobsBetCBOS">
+                                        <ul class="three-floor-ul">
+                                            <li class="three-floor-li">{{::liss.department}}</li>
+                                            <li class="four-floor">
+                                                <ul class="four-floor-ul">
+                                                    <li class="four-floor" ng-repeat="lis in liss.jobsBetDBOS" >
+                                                        <ul class="five-floor-ul">
+                                                            <li class="five-floor-li">{{::lis.jobs}}</li>
+                                                            <li class="five-floor-li">{{::lis.people}}</li>
+                                                            <li class="five-floor-li">{{::lis.baseWeight}}</li>
+                                                            <li class="five-floor-li">{{::lis.basesScore}}</li>
+                                                            <li class="five-floor-li">{{::lis.basesScorePlan}}</li>
+                                                            <li class="five-floor-li">{{::lis.basesScorePractice}}</li>
+                                                            <li class="five-floor-li">{{::lis.restrictScore}}</li>
+                                                            <li class="five-floor-li">{{::lis.restrictScorePlan}}</li>
+                                                            <li class="five-floor-li">{{::lis.restrictScorePractice}}</li>
+                                                            <li class="five-floor-li">{{::lis.totalScore}}</li>
+                                                            <li class="five-floor-li">{{::lis.totalScorePlan}}</li>
+                                                            <li class="five-floor-li">{{::lis.totalScorePractice}}</li>
+                                                            <li class="five-floor">
+                                                                <ul class="five-floor-ul">
+                                                                    <li class="six-floor" ng-repeat="liF in lis.jobsBetEBOS">
+                                                                        <ul class="six-floor-ul">
+                                                                            <li class="six-floor-li">{{::liF.betWeight}}</li>
+                                                                            <li class="six-floor-li">{{::liF.indexNum}}</li>
+                                                                            <li class="six-floor-li">{{::liF.indexName}}</li>
+                                                                            <li class="six-floor-li">{{::liF.confirmTargetValue}}</li>
+                                                                            <li class="six-floor-li">{{::liF.actualTargetValue}}</li>
+                                                                            <li class="six-floor-li">{{::liF.standard|cos}}</li>
+                                                                            <li class="six-floor-li">{{::liF.betScore}}</li>
+                                                                            <li class="six-floor-li">{{::liF.betScorePlan}}</li>
+                                                                            <li class="six-floor-li">{{::liF.betScorePractice}}</li>
+                                                                            <li class="seven-floor">
+                                                                                <ul class="seven-floor-ul">
+                                                                                    <li class="eight-floor" ng-repeat="liG in liF.jobsBetFBOS?liF.jobsBetFBOS:ccc">
+                                                                                        <ul class="eight-floor-ul">
+                                                                                            <li class="eight-floor-li li-height">{{::liG.unmetAllocationJobs}}</li>
+                                                                                            <li class="eight-floor-li li-height">{{::liG.unmetAllocation}}</li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+        <footer class="footer">
+        </footer>
+</div>

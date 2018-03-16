@@ -1,0 +1,297 @@
+<div class="add" verify-scope="tipStyle: 1">
+    <div class="add-box">
+        <div class="box-head">
+            <p class="head-left">信息设置</p>
+            <div class="head-right">
+                <ul class="input-list">
+                    <li>
+                        <label>对赌开始时间<i>*</i></label>
+                        <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="date-icon betTime" ng-model="add.betTime">
+                    </li>
+                    <li>
+                        <label>地区<i>*</i></label>
+                        <div class="sele side">
+                            <select class="sele" ng-model="add.area">
+                                <option value="" disabled></option>
+                                <option ng-repeat="Aare in typeAare">{{Aare.area}}</option>
+                            </select>
+                            <input type="text"  class="inputDom" ng-model="add.area" >
+                        </div>
+                    </li>
+                    <li>
+                        <label>项目组/部门<i>*</i></label>
+                        <div class="sele side">
+                            <select class="sele" ng-model="add.projectGroup">
+                                <option value="" disabled></option>
+                                <option ng-repeat="Group in typeGroup">{{Group.department}}</option>
+                            </select>
+                            <input type="text"  class="inputDom" ng-model="add.projectGroup" >
+                        </div>
+                    </li>
+                    <li>
+                        <label>内部项目名称<i>*</i></label>
+                        <input type="text"  ng-model="add.projectName"  ng-verify="{}">
+                    </li>
+                    <li>
+                        <label>分值<i>*</i></label>
+                        <input type="number"  ng-model="add.scoreProfit" ng-verify="{}">
+                    </li>
+                    <li>
+                        <label>计划分值<i>*</i></label>
+                        <input type="number"   ng-model="add.planProfit" ng-verify="{}">
+                    </li>
+                    <li>
+                        <label>实际分值<i>*</i></label>
+                        <input type="number"  ng-model="add.practiceProfit" ng-verify="{}">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="all-show" ng-repeat="list in honor" ng-init="outerIndex = $index">
+            <div class="as">
+                <div class="box-body">
+                    <div class="body-left">
+                        <ul>
+                            <li  ng-click="del($index)">
+                                <a href="javascript:void(0)">
+                                    <i class="list-icon" >
+                                        <svg role="img" class="del-table">
+                                            <use xlink:href="#delete"></use>
+                                        </svg>
+                                    </i>删除
+                                </a>
+                            </li>
+                            <li ng-click="add()">
+                                <a href="javascript:void(0)">
+                                    <i class="list-icon">
+                                        <svg role="img" class="add-table">
+                                            <use xlink:href="#add"></use>
+                                        </svg>
+                                    </i>    添加
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body-right" >
+                        <ul class="input-list">
+                            <li>
+                                <label>体系<i>*</i></label>
+                                <div class="sele side">
+                                    <select class="sele" ng-model="list.system">
+                                        <option value="" disabled></option>
+                                        <option ng-repeat="list in typeSty">{{list}}</option>
+                                    </select>
+                                    <input type="text"  class="inputDom" ng-model="list.system" >
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box-body" ng-repeat="sd in list.departmentBetCBOS" ng-init="twoIndex = $index"  ng-show="deportment">
+                        <div class="body-left">
+                            <ul>
+                                <li ng-click="opel($index)">
+                                    <a href="javascript:void(0)">
+                                        <i class="list-icon">
+                                            <svg role="img" class="del-table">
+                                                <use xlink:href="#delete"></use>
+                                            </svg>
+                                        </i>删除
+                                    </a>
+                                </li>
+                                <li ng-click="opdd($index)">
+                                    <a href="javascript:void(0)">
+                                        <i class="list-icon">
+                                            <svg role="img" class="add-table">
+                                                <use xlink:href="#add"></use>
+                                            </svg>
+                                        </i>    添加
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body-right" >
+                            <ul class="input-list">
+                                <li>
+                                    <label>部门<i>*</i></label>
+                                    <input type="text"  ng-model="sd.department" ng-verify="{}">
+                                </li>
+                                <li>
+                                    <label>目标-部门分配基础权重（%)<i>*</i></label>
+                                    <input type="text"  ng-model="sd.baseWeight" ng-verify="{}">
+                                </li>
+                                <li>
+                                    <label>目标基础得分<i>*</i></label>
+                                    <input type="number"  ng-model="sd.basesScore" ng-verify="{}">
+                                </li>
+                                <li>
+                                    <label>计划基础得分<i>*</i></label>
+                                    <input type="number"  ng-model="sd.basesScorePlan" ng-verify="{}">
+                                </li>
+                                <li>
+                                    <label>实际基础得分<i>*</i></label>
+                                    <input type="number"  ng-model="sd.basesScorePractice" ng-verify="{}">
+                                </li>
+                                <li>
+                                    <label>目标制约得分<i>*</i></label>
+                                    <input type="number"  ng-model="sd.restrictScore" ng-verify="{}">
+                                </li>
+
+                                <li>
+                                    <label>计划制约得分<i>*</i></label>
+                                    <input type="number"  ng-model="sd.restrictScorePlan" ng-verify="{}">
+                                </li>
+                                <li>
+                                    <label>实际制约得分<i>*</i></label>
+                                    <input type="number"  ng-model="sd.restrictScorePractice" ng-verify="{}">
+                                </li>
+                                <li>
+                                    <label>体系目标总得分<i>*</i></label>
+                                    <input type="number"  ng-model="sd.departmentTotalScore" ng-verify="{}">
+                                </li>
+                                <li>
+                                    <label> 体系计划总得分<i>*</i></label>
+                                    <input type="number"  ng-model="sd.departmentTotalScorePlan" ng-verify="{}">
+                                </li>
+                                <li>
+                                    <label> 体系实际总得分<i>*</i></label>
+                                    <input type="number"  ng-model="sd.departmentTotalScorePractice" ng-verify="{}">
+                                </li>
+                                <div class="box-body1" ng-repeat="sdr in sd.departmentBetDBOS">
+                                    <div class="body-left"  >
+                                        <ul>
+                                            <li ng-click="ded(outerIndex,$index)">
+                                                <a href="javascript:void(0)">
+                                                    <i class="list-icon">
+                                                        <svg role="img" class="del-table">
+                                                            <use xlink:href="#delete"></use>
+                                                        </svg>
+                                                    </i>删除
+                                                </a>
+                                            </li>
+                                            <li ng-click="dad(outerIndex,$index)">
+                                                <a href="javascript:void(0)">
+                                                    <i class="list-icon">
+                                                        <svg role="img" class="add-table">
+                                                            <use xlink:href="#add"></use>
+                                                        </svg>
+                                                    </i>    添加
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="body-right"  >
+                                        <ul class="input-list">
+                                            <li>
+                                                <label>目标-部门分配对赌权重（%）<i>*</i></label>
+                                                <input type="number"  ng-model="sdr.betWeight" ng-verify="{}">
+                                            </li>
+                                            <li>
+                                                <label>指标编号<i>*</i></label>
+                                                <div class="sele side">
+                                                    <select class="sele" ng-model="sdr.indexNum">
+                                                        <option value="" disabled></option>
+                                                        <option ng-repeat="num in numList">{{num}}</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label>指标名称<i>*</i></label>
+                                                <div class="sele side">
+                                                    <select class="sele" ng-model="sdr.indexName">
+                                                        <option value="" disabled></option>
+                                                        <option ng-repeat="name in nameList">{{name}}</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label> 部门对赌承诺-确认目标值<i>*</i></label>
+                                                <input type="text"  ng-model="sdr.confirmTargetValue" ng-verify="{}">
+                                            </li>
+                                            <li>
+                                                <label> 实际目标值<i>*</i></label>
+                                                <input type="number"  ng-model="sdr.actualTargetValue" ng-verify="{}">
+                                            </li>
+                                            <li>
+                                                <label>项目对赌是否达标<i>*</i></label>
+                                                <select class="sele"  ng-model="sdr.standard">
+                                                    <option value="" disabled></option>
+                                                    <option  ng-value=true >是</option>
+                                                    <option  ng-value=false>否</option>
+                                                </select>
+                                            </li>
+                                            <li>
+                                                <label> 目标对赌得分<i>*</i></label>
+                                                <input type="number"  ng-model="sdr.betScore" ng-verify="{}">
+                                            </li>
+                                            <li>
+                                                <label> 计划对赌得分<i>*</i></label>
+                                                <input type="number"  ng-model="sdr.betScorePlan" ng-verify="{}">
+                                            </li>
+                                            <li>
+                                                <label>实际对赌得分<i>*</i></label>
+                                                <input type="number"  ng-model="sdr.betScorePractice" ng-verify="{}">
+                                            </li>
+                                            <div class="box-body1"    ng-repeat="dis in sdr.departmentBetEBOS">
+                                                <div class="body-left"  >
+                                                    <ul>
+                                                        <li ng-click="disp(outerIndex,twoIndex,$index)">
+                                                            <a href="javascript:void(0)">
+                                                                <i class="list-icon">
+                                                                    <svg role="img" class="del-table">
+                                                                        <use xlink:href="#delete"></use>
+                                                                    </svg>
+                                                                </i>删除
+                                                            </a>
+                                                        </li>
+                                                        <li ng-click="aisp(outerIndex,twoIndex,$index)">
+                                                            <a href="javascript:void(0)">
+                                                                <i class="list-icon">
+                                                                    <svg role="img" class="add-table">
+                                                                        <use xlink:href="#add"></use>
+                                                                    </svg>
+                                                                </i>    添加
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="body-right"  >
+                                                    <ul class="input-list">
+                                                        <li>
+                                                            <label>未达标分配体系<i>*</i></label>
+                                                            <input type="text"  ng-model="dis.unmetAllocationDepartment" ng-verify="{}">
+                                                        </li>
+                                                        <li>
+                                                            <label>未达标分配<i>*</i></label>
+                                                            <input type="number"  ng-model="dis.unmetAllocation" ng-verify="{}">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="body-add" ng-click="more()">点击查看相关添加</h1>
+    </div>
+    <p class="box-bottom">
+        <button class="cancel" ng-click="cancel()">取消</button>
+        <button   ng-verify="{control:'myform'}"   ng-click="departmentEditFun()" >确定</button>
+    </p>
+</div>
+
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>
+
